@@ -1,0 +1,31 @@
+
+ {% extends 'header.html' %}
+    {% block content %}
+
+    <center><h2>Hotels of {{Name}}</h2></center>
+    <hr/>
+
+    <div class="container">
+     <table class="table table-responsive">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>GST</th>
+                <th>Edit/Delete</th>
+            </tr>
+
+         {% for i in hotel_list %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.location.name}}</td>
+                <td>{{i.gst}}</td>
+                <td><a href="/{{i.id}}/editHotel/">Edit/</a><a href="/{{i.id}}/deleteHotel/">Delete</a></td>
+            </tr>
+
+    {% endfor %}
+
+     </table>
+    </div>
+   {% endblock %}

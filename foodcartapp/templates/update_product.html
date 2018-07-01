@@ -1,0 +1,62 @@
+
+ {% extends 'header.html' %}
+    {% block content %}
+   <div class="container">
+        <div class="row">
+            <div class="col-sm-2 col-md-2 col-lg-2"></div>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+        <form action="/editProduct/" class="form-horizontal" method="post">
+              {% csrf_token %}
+            <div class="form-group">
+            <label for="id_name">Name:</label>
+            <input type="text" name="name"  class="form-control" maxlength="50" required="" id="id_name" value={{product.name}}>
+            </div>
+
+            <div class="form-group">
+            <label for="id_half_price">Half price:</label>
+            <input type="number" name="half_price"  class="form-control" step="0.01" required="" id="id_half_price" value={{product.half_price}}>
+            </div>
+
+            <div class="form-group">
+            <label for="id_full_price">Full price:</label>
+            <input type="number" name="full_price"  class="form-control" step="0.01" required="" id="id_full_price" value={{product.full_price}}>
+            </div>
+
+            <div class="form-group">
+            <label for="id_availabilty">Availabilty:</label>
+            <input type="checkbox" name="availabilty"  class="form-control" id="id_availabilty" checked="" value="">
+            </div>
+
+            <div class="form-group">
+            <label for="id_image">Image URL:</label>
+            <input type="url" name="image"  class="form-control" required="" id="id_image" value={{product.image}}>
+            </div>
+
+            <div class="form-group">
+            <label for="id_special_status">Special status:</label>
+            <input type="checkbox" name="special_status"  class="form-control" id="id_special_status" value="">
+            </div>
+
+             <div class="form-group">
+            <label for="id_category">Category:</label>
+            <input type="text" name="category"  class="form-control" maxlength="50" required="" id="id_category" value={{product.category}}>
+            </div>
+
+            <div class="form-group">
+            <label for="id_hotel">Hotel:</label>
+            <select name="hotel"  class="form-control" required="" id="id_hotel">
+                <option  value={{product.hotel.id}} selected="">{{product.hotet.name}}</option>
+                {% for i in hotel %}
+                     <option value={{i.id}}>{{i.name}}</option>
+                {% endfor %}
+            </select>
+            </div>
+
+            <br>
+                <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+                </div>
+            <div class="col-sm-2 col-md-2 col-lg-2"></div>
+            </div>
+    </div>
+  {% endblock %}

@@ -1,0 +1,48 @@
+
+
+    {% extends 'header.html' %}
+    {% block content %}
+
+    <center><h2>Products of {{Name}}</h2></center>
+    <hr/>
+   <div class="row">
+       <div class="col-sm-5 col-md-5 col-lg-5"></div> <div class="col-sm-2 col-md-2 col-lg-2">
+       <a href="/addproduct"><button type="button" class="btn btn-primary">Add Product</button></a>
+       </div>
+       <div class="col-sm-5 col-md-5 col-lg-5"></div>
+   </div>
+    <br/><br/>
+    <div class="container">
+     <table class="table table-responsive">
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Half</th>
+                <th>Full</th>
+                <th>Availabilty</th>
+                <th>Image</th>
+                <th>Special</th>
+                <th>Hotel</th>
+                <th>Edit/Delete</th>
+            </tr>
+
+         {% for i in products_list %}
+            <tr>
+                <td>{{i.name}}</td>
+               <td>{{i.category}}</td>
+                <td>{{i.half_price}}</td>
+                <td>{{i.full_price}}</td>
+                <td>{{i.availabilty}}</td>
+                <td><img src={{i.image}} alt="image.jpg" height="100px" width="100px"></td>
+                <td>{{i.special_status}}</td>
+                <td>{{i.hotel.name}}</td>
+                <td>
+                        <a href="/{{i.id}}/editProduct/">Edit</a>/
+                        <a href="/{{i.id}}/deleteProduct/">Delete</a>
+                </td>
+            </tr>
+
+    {% endfor %}
+     </table>
+    </div>
+  {% endblock %}

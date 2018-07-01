@@ -1,0 +1,37 @@
+
+
+    {% extends 'header.html' %}
+    {% block content %}
+
+    <center><h2>Orders of {{Name}}</h2></center>
+    <hr/>
+    <br/><br/>
+    <div class="container">
+     <table class="table table-responsive">
+            <tr>
+                <th>Order ID</th>
+                <th>Product Name</th>
+                <th>Product ID</th>
+                <th>Product Hotel</th>
+                <th>Quantity</th>
+                <th>Customer ID</th>
+                <th>Customer Phone Number</th>
+                <th>Customer Address</th>
+            </tr>
+
+         {% for i in orderdetails_list %}
+            <tr>
+                <td>{{i.order.id}}</td>
+               <td>{{i.product.name}}</td>
+                <td>{{i.product.id}}</td>
+                <td>{{i.product.hotel.name}}</td>
+                <td>{{i.quantity}}</td>
+                <td>{{i.order.customer.id}}</td>
+                <td>{{i.order.customer.phone_number}}</td>
+                <td>{{i.order.customer.address}}</td>
+            </tr>
+
+    {% endfor %}
+     </table>
+    </div>
+  {% endblock %}

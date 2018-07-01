@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+        <br/><br/><br/>
+
+        <center><h2>Login Form</h2>
+        <hr/>
+    <div class="row">
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+
+
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+
+                <form method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" value="Login"/>
+                </form>
+
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+        </div>
+
+    </div>
+        <center style="text-decoration:none"><a href="/sign_up/"><h4>SignUp Here</h4></a></center>
+</center>
+</body>
+</html>

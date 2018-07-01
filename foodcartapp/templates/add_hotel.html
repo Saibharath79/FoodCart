@@ -1,0 +1,36 @@
+ {% extends 'header.html' %}
+    {% block content %}
+
+    <div class="container">
+        <div class="row">
+    <div class="col-md-3 col-md-3 col-lg-3"></div>
+
+            <div class="col-md-6 col-lg-6 col-sm-6">
+        <form action="/addhotel/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_name">Name:</label>
+            <input type="text" name="name" class="form-control" maxlength="50" required="" id="id_name">
+        </div>
+        <div class="form-group">
+            <label for="id_location">Location:</label>
+            <select name="location" required="" class="form-control" id="id_location">
+                    <option value="" selected="">Choose Location</option>
+                    {% for i in location %}
+                        <option value={{i.id}}>{{i.name}},{{i.city.name}}</option>
+                    {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_gst">GST:</label>
+            <input type="number" class="form-control" name="gst" step="0.01" required="" id="id_gst">
+        </div>
+
+            <br>
+       <input type="submit" value="Submit">
+        </form>
+        </div>
+            <div class="col-md-3 col-md-3 col-lg-3"></div>
+            </div>
+    </div>
+   {% endblock %}
